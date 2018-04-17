@@ -1,5 +1,5 @@
 {
-  "name": "fluig-sdk-login",
+  "name": "cordova-plugin-fluig-sdk",
   "version": "1.0.0",
   "description": "Plugin para o fluig SDK",
   "license": "MIT",
