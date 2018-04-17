@@ -1,0 +1,7 @@
+repositories {
+    maven { url 'https://dl.bintray.com/fluig/maven' }
+}
+
+dependencies {
+    implementation 'sdk.fluig.com:bllCore:0.2.5'
+}

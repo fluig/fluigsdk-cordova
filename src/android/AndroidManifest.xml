@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="https://schemas.android.com/apk/res/android"
+    package="sdk.fluig.com.cordova.plugin">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application>
+
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.email.view.EmailRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.server.view.ServerRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.password.view.PasswordRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.forgot.view.ForgotPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.manual.view.ManualLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.account.view.AccountSelectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.login.mfa.view.MfaRequestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigLoginTheme.Light" />
+
+        <!-- EULA -->
+        <activity
+            android:name="sdk.fluig.com.bll.core.eula.accept.view.EulaAcceptActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FluigEulaTheme.Dark" />
+        <activity
+            android:name="sdk.fluig.com.bll.core.eula.terms.view.EulaTermsActivity"
+            android:theme="@style/FluigEulaTheme.Dark" />
+
+    </application>
+
+</manifest>
