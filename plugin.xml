@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="fluig-sdk-login"
+    version="1.0.0">
+
+  <name>FluigLoginWrapper</name>
+  <description>Plugin para o fluxo de login do fluig SDK</description>
+  <keywords>fluig,sdk,login,cordova</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=7.0.0" />
+    <engine name="cordova-ios" version=">=4.4.0" />
+  </engines>
+
+  <js-module src="www/plugin.js" name="plugin">
+    <clobbers target="cordova.plugins.FluigLoginWrapper" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+
+    <!-- Dependencies -->
+    <framework src="src/android/fluig-sdk.gradle" custom="true" type="gradleReference"/>
+
+    <!-- AndroidManifest -->
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.email.view.EmailRequestActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustPan" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.server.view.ServerRequestActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.password.view.PasswordRequestActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.forgot.view.ForgotPasswordActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.manual.view.ManualLoginActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustPan" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.account.view.AccountSelectActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait" />
+      <activity
+        android:name="sdk.fluig.com.bll.core.login.mfa.view.MfaRequestActivity"
+        android:theme="@style/FluigLoginTheme.Light"
+        android:screenOrientation="portrait" />
+    </config-file>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="FluigLoginWrapper">
+        <param name="android-package" value="sdk.fluig.com.cordova.FluigLoginWrapper" />
+      </feature>
+    </config-file>
+
+    <!-- Source Files -->
+    <source-file src="src/android/sdk/fluig/com/cordova/FluigLoginWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
+
+  </platform>
+
+  <!-- ios -->
+  <platform name="ios">
+
+    <!-- Dependencies -->
+    <framework src="src/ios/frameworks/CommonCrypto.framework" custom="true" embed="true" />
+    <framework src="src/ios/frameworks/fluigSDKCore.framework" custom="true" embed="true"  />
+    <framework src="src/ios/frameworks/fluigSDKUi.framework" custom="true" embed="true"  />
+    <framework src="src/ios/frameworks/fluigSDKFlows.framework" custom="true" embed="true"  />
+
+    <dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
+    <dependency id="cordova-plugin-transport-security" />
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="FluigLoginWrapper">
+        <param name="ios-package" value="FluigLoginWrapper" />
+      </feature>
+    </config-file>
+
+    <!-- Source Files -->
+    <source-file src="src/ios/FluigLoginWrapper.swift" />
+
+  </platform>
+</plugin>
