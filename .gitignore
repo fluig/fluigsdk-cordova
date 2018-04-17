@@ -9,6 +9,9 @@ bin/*
 plugins/*
 platforms/*
 
+### Android ###
+src/android/.idea/
+
 ### Linux ###
 *~
 
