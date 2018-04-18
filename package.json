@@ -2,18 +2,13 @@
   "name": "cordova-plugin-fluig-sdk",
   "version": "1.0.0",
   "description": "Plugin para o fluig SDK",
+  "keywords": [ "cordova", "fluig", "sdk" ],
   "license": "MIT",
-  "cordova": {
-    "id": "cordova-plugin-fluig-sdk",
-    "platforms": [
-      "android",
-      "ios"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fluig/fluigsdk-cordova"
-  },
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "repo": "https://github.com/fluig/fluigsdk-cordova",
   "engines": {
     "cordovaDependencies": {
       "1.0.0": {
