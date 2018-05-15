@@ -22,8 +22,8 @@ import org.json.JSONException;
 
 import java.util.Date;
 
-public class FluigLoginWrapper extends CordovaPlugin {
-    private static final String TAG = "MyCordovaPlugin";
+public class FluigFlowWrapper extends CordovaPlugin {
+    private static final String TAG = "FluigSdkCordova";
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
