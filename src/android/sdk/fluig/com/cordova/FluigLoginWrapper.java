@@ -25,8 +25,6 @@ import java.util.Date;
 public class FluigLoginWrapper extends CordovaPlugin {
     private static final String TAG = "MyCordovaPlugin";
 
-    private LoginFlow flow;
-
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
 
@@ -37,34 +35,38 @@ public class FluigLoginWrapper extends CordovaPlugin {
         } catch (Exception ex){
             ex.printStackTrace();
         }
-
-        flow = new LoginFlow(cordova.getContext());
     }
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("start")) {
-            if (flow == null) {
-                callbackContext.error("Unable to start login flow.");
-                return false;
-            }
-
-            BroadcastReceiver receiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    callbackContext.success();
-                }
-            };
-
-            IntentFilter filter = new IntentFilter();
-            filter.addAction(LoginFlow.ACTION_DID_LOGIN);
-            cordova.getContext().registerReceiver(receiver, filter);
-
-            flow.start();
-
-            return true;
+            return login(args, callbackContext);
         }
 
-        callbackContext.error("Unsupported method for login plugin.");
+        callbackContext.error("Unsupported method for flows plugin.");
         return false;
+    }
+
+    private boolean login(JSONArray args, final CallbackContext callbackContext) throws JSONException {
+        Context context = cordova.getContext();
+        if (context == null) {
+            callbackContext.error("Unable to start login flow.");
+            return false;
+        }
+
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                callbackContext.success();
+            }
+        };
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(LoginFlow.ACTION_DID_LOGIN);
+        context.registerReceiver(receiver, filter);
+
+        LoginFlow flow = new LoginFlow(context);
+        flow.start();
+
+        return true;
     }
 }
