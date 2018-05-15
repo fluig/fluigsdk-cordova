@@ -5,7 +5,7 @@ var NATIVE_CLASS_NAME = "FluigLoginWrapper";
 var FluigSdkFlows = {};
 
 FluigSdkFlows.login = function(success, error) {
-  exec(success, error, NATIVE_CLASS_NAME, "start", []);
+  exec(success, error, NATIVE_CLASS_NAME, "login", []);
 };
 
 module.exports = FluigSdkFlows;

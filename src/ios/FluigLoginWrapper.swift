@@ -5,8 +5,8 @@ import fluigSDKFlows
 
     private var callbackId: String?
 
-    @objc(start:)
-    public func start(command: CDVInvokedUrlCommand) {
+    @objc(login:)
+    public func login(command: CDVInvokedUrlCommand) {
 
         guard UIApplication.shared.keyWindow != nil else {
             self.commandDelegate?.send(CDVPluginResult(status: CDVCommandStatus_ERROR,
