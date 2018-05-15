@@ -58,13 +58,13 @@
     </config-file>
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="FluigLoginWrapper">
-        <param name="android-package" value="sdk.fluig.com.cordova.FluigLoginWrapper" />
+      <feature name="FluigFlowWrapper">
+        <param name="android-package" value="sdk.fluig.com.cordova.FluigFlowWrapper" />
       </feature>
     </config-file>
 
     <!-- Source Files -->
-    <source-file src="src/android/sdk/fluig/com/cordova/FluigLoginWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
+    <source-file src="src/android/sdk/fluig/com/cordova/FluigFlowWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
 
   </platform>
 
@@ -81,13 +81,13 @@
     <dependency id="cordova-plugin-transport-security" />
 
     <config-file target="config.xml" parent="/*">
-      <feature name="FluigLoginWrapper">
-        <param name="ios-package" value="FluigLoginWrapper" />
+      <feature name="FluigFlowWrapper">
+        <param name="ios-package" value="FluigFlowWrapper" />
       </feature>
     </config-file>
 
     <!-- Source Files -->
-    <source-file src="src/ios/FluigLoginWrapper.swift" />
+    <source-file src="src/ios/FluigFlowWrapper.swift" />
 
   </platform>
 </plugin>
