@@ -9,6 +9,7 @@
 
     <application>
 
+        <!-- Login -->
         <activity
             android:name="sdk.fluig.com.bll.core.login.email.view.EmailRequestActivity"
             android:screenOrientation="portrait"
