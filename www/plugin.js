@@ -1,11 +1,11 @@
 
 var exec = require('cordova/exec');
 
-var NATIVE_CLASS_NAME = "FluigLoginWrapper";
+var FLOW_WRAPPER_NATIVE = "FluigFlowWrapper";
 var FluigSdkFlows = {};
 
 FluigSdkFlows.login = function(success, error) {
-  exec(success, error, NATIVE_CLASS_NAME, "login", []);
+  exec(success, error, FLOW_WRAPPER_NATIVE, "login", []);
 };
 
 module.exports = FluigSdkFlows;
