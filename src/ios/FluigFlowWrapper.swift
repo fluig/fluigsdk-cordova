@@ -1,12 +1,13 @@
 import UIKit
 import fluigSDKFlows
 
-@objc(FluigLoginWrapper) public class FluigLoginWrapper: CDVPlugin {
+@objc(FluigFlowWrapper)
+public class FluigFlowWrapper: CDVPlugin {
 
     private var callbackId: String?
 
-    @objc(start:)
-    public func start(command: CDVInvokedUrlCommand) {
+    @objc(login:)
+    public func login(command: CDVInvokedUrlCommand) {
 
         guard UIApplication.shared.keyWindow != nil else {
             self.commandDelegate?.send(CDVPluginResult(status: CDVCommandStatus_ERROR,
@@ -26,7 +27,8 @@ import fluigSDKFlows
             .startAsRoot(window: UIApplication.shared.keyWindow!)
     }
 
-    @objc private func loginDidSucceed() {
+    @objc
+    private func loginDidSucceed() {
         guard let callbackId = self.callbackId else {
             self.commandDelegate?.send(CDVPluginResult(status: CDVCommandStatus_ERROR,
                                                        messageAs: "Callback 'success' could not be called."),
