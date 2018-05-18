@@ -89,10 +89,14 @@
       <feature name="FluigFlowWrapper">
         <param name="ios-package" value="FluigFlowWrapper" />
       </feature>
+      <feature name="FluigInformationWrapper">
+        <param name="ios-package" value="FluigInformationWrapper" />
+      </feature>
     </config-file>
 
     <!-- Source Files -->
     <source-file src="src/ios/FluigFlowWrapper.swift" />
+    <source-file src="src/ios/FluigInformationWrapper.swift" />
 
   </platform>
 </plugin>
