@@ -15,6 +15,7 @@
 
   <js-module src="www/plugin.js" name="plugin">
     <clobbers target="cordova.plugins.FluigSdkFlows" />
+    <clobbers target="cordova.plugins.FluigSdkInformation" />
   </js-module>
 
   <!-- android -->
@@ -61,10 +62,14 @@
       <feature name="FluigFlowWrapper">
         <param name="android-package" value="sdk.fluig.com.cordova.FluigFlowWrapper" />
       </feature>
+      <feature name="FluigInformationWrapper">
+        <param name="android-package" value="sdk.fluig.com.cordova.FluigInformationWrapper" />
+      </feature>
     </config-file>
 
     <!-- Source Files -->
     <source-file src="src/android/sdk/fluig/com/cordova/FluigFlowWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
+    <source-file src="src/android/sdk/fluig/com/cordova/FluigInformationWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
 
   </platform>
 

@@ -2,6 +2,7 @@
 var exec = require('cordova/exec');
 
 var FLOW_WRAPPER_NATIVE = "FluigFlowWrapper";
+
 var FluigSdkFlows = {};
 
 FluigSdkFlows.login = function(success, error) {
