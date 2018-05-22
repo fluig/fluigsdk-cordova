@@ -11,24 +11,24 @@ FluigSdkFlows.login = function(success, error) {
 
 module.exports = FluigSdkFlows;
 
-var LOGIN_INFORMATION_WRAPPER_NATIVE = "FluigInformationWrapper";
+var INFORMATION_WRAPPER_NATIVE = "FluigInformationWrapper";
 
 var FluigSdkInformation = {};
 
 FluigSdkInformation.getJwtToken = function(success, error) {
-  exec(success, error, LOGIN_INFORMATION_WRAPPER_NATIVE, "getJwtToken", []);
+  exec(success, error, INFORMATION_WRAPPER_NATIVE, "getJwtToken", []);
 };
 
 FluigSdkInformation.getLoggedUser = function(success, error) {
-  exec(success, error, LOGIN_INFORMATION_WRAPPER_NATIVE, "getLoggedUser", []);
+  exec(success, error, INFORMATION_WRAPPER_NATIVE, "getLoggedUser", []);
 };
 
 FluigSdkInformation.getLoggedServer = function(success, error) {
-  exec(success, error, LOGIN_INFORMATION_WRAPPER_NATIVE, "getLoggedServer", []);
+  exec(success, error, INFORMATION_WRAPPER_NATIVE, "getLoggedServer", []);
 };
 
 FluigSdkInformation.getSessions = function(success, error) {
-  exec(success, error, LOGIN_INFORMATION_WRAPPER_NATIVE, "getSessions", []);
+  exec(success, error, INFORMATION_WRAPPER_NATIVE, "getSessions", []);
 };
 
 module.exports = FluigSdkInformation;
