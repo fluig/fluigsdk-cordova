@@ -14,8 +14,7 @@
   </engines>
 
   <js-module src="www/plugin.js" name="plugin">
-    <clobbers target="cordova.plugins.FluigSdkFlows" />
-    <clobbers target="cordova.plugins.FluigSdkInformation" />
+    <clobbers target="cordova.plugins.fluigSdk" />
   </js-module>
 
   <!-- android -->
