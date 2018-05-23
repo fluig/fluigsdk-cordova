@@ -97,16 +97,26 @@ public final class FluigInformationWrapper extends CordovaPlugin {
 
         Type type = new TypeToken<List<Session>>() {}.getType();
         String json = gson.toJson(sessions, type);
-        return convertStringInformation(json, callbackContext);
+        return convertStringInformation(json, true, callbackContext);
     }
 
     private boolean convertStringInformation(String json, final CallbackContext callbackContext) {
+        return convertStringInformation(json, false, callbackContext);
+    }
+
+    private boolean convertStringInformation(String json, boolean isArray, final CallbackContext callbackContext) {
         if (json == null) {
             callbackContext.error("Unable to convert retrieved information to String::class.");
             return false;
         }
 
         try {
+            if (isArray) {
+                JSONArray jsonArray = new JSONArray(json);
+                callbackContext.success(jsonArray);
+                return true;
+            }
+
             JSONObject jsonObject = new JSONObject(json);
             callbackContext.success(jsonObject);
             return true;
