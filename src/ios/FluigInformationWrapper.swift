@@ -51,6 +51,7 @@ public class FluigInformationWrapper: CDVPlugin {
         sendErrorResult(with: "Unsupported method for login information plugin.")
     }
     
+    @objc
     private func sendResult(with dictionary: [String: Any]) {
         if dictionary.isEmpty {
             sendErrorResult(with: "Unable to convert retrieved information to JSON type.")
@@ -62,6 +63,7 @@ public class FluigInformationWrapper: CDVPlugin {
         self.commandDelegate?.send(result, callbackId: self.callbackId)
     }
     
+    @objc
     private func sendErrorResult(with message: String) {
         let result = CDVPluginResult(status: CDVCommandStatus_ERROR,
                                      messageAs: message)
