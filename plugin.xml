@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-fluig-sdk"
-    version="1.0.1">
+    version="1.1.0">
 
   <name>FluigSdkPlugin</name>
   <description>Plugin para o fluig SDK</description>
@@ -14,7 +14,7 @@
   </engines>
 
   <js-module src="www/plugin.js" name="plugin">
-    <clobbers target="cordova.plugins.FluigSdkFlows" />
+    <clobbers target="cordova.plugins.fluigSdk" />
   </js-module>
 
   <!-- android -->
@@ -61,10 +61,14 @@
       <feature name="FluigFlowWrapper">
         <param name="android-package" value="sdk.fluig.com.cordova.FluigFlowWrapper" />
       </feature>
+      <feature name="FluigInformationWrapper">
+        <param name="android-package" value="sdk.fluig.com.cordova.FluigInformationWrapper" />
+      </feature>
     </config-file>
 
     <!-- Source Files -->
     <source-file src="src/android/sdk/fluig/com/cordova/FluigFlowWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
+    <source-file src="src/android/sdk/fluig/com/cordova/FluigInformationWrapper.java" target-dir="src/sdk/fluig/com/cordova" />
 
   </platform>
 
@@ -84,10 +88,14 @@
       <feature name="FluigFlowWrapper">
         <param name="ios-package" value="FluigFlowWrapper" />
       </feature>
+      <feature name="FluigInformationWrapper">
+        <param name="ios-package" value="FluigInformationWrapper" />
+      </feature>
     </config-file>
 
     <!-- Source Files -->
     <source-file src="src/ios/FluigFlowWrapper.swift" />
+    <source-file src="src/ios/FluigInformationWrapper.swift" />
 
   </platform>
 </plugin>
