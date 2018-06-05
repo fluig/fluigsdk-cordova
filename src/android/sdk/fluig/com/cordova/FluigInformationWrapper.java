@@ -95,6 +95,11 @@ public final class FluigInformationWrapper extends CordovaPlugin {
             callbackContext.error("Unable to find any valid Session:class information.");
         }
 
+        for (Session session : sessions){
+            session.setConsumerKey("");
+            session.setConsumerSecret("");
+        }
+
         Type type = new TypeToken<List<Session>>() {}.getType();
         String json = gson.toJson(sessions, type);
         return convertStringInformation(json, true, callbackContext);
