@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
+import sdk.fluig.com.bll.core.eula.EulaFlow;
 import sdk.fluig.com.bll.core.login.LoginFlow;
 import sdk.fluig.com.core.cache.Cacheable;
 import sdk.fluig.com.core.configuration.ConfigurationUtils;
@@ -38,6 +39,8 @@ public class FluigFlowWrapper extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("login")) {
             return login(args, callbackContext);
+        } else if (action.equals("eula")){
+            return eula(args, callbackContext);
         }
 
         callbackContext.error("Unsupported method for flows plugin.");
@@ -67,4 +70,31 @@ public class FluigFlowWrapper extends CordovaPlugin {
 
         return true;
     }
+
+    private boolean eula(JSONArray args, final CallbackContext callbackContext) throws JSONException {
+        Context context = cordova.getContext();
+        if (context == null) {
+            callbackContext.error("Unable to start eula flow.");
+            return false;
+        }
+
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                callbackContext.success(intent.getAction());
+            }
+        };
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(EulaFlow.ACTION_DID_ACCEPT);
+        filter.addAction(EulaFlow.ACTION_DID_NOT_ACCEPT);
+        context.registerReceiver(receiver, filter);
+
+        EulaFlow flow = new EulaFlow(context);
+
+        flow.start();
+
+        return true;
+    }
+
 }

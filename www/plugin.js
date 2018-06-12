@@ -13,6 +13,10 @@ fluigSdk.flows.login = function(success, error) {
   exec(success, error, FLOW_WRAPPER_NATIVE, "login", []);
 };
 
+fluigSdk.flows.eula = function(success, error) {
+  exec(success, error, FLOW_WRAPPER_NATIVE, "eula", []);
+};
+
 //information
 
 var INFORMATION_WRAPPER_NATIVE = "FluigInformationWrapper";
