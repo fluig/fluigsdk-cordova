@@ -13,8 +13,8 @@ fluigSdk.flows.login = function(success, error) {
   exec(success, error, FLOW_WRAPPER_NATIVE, "login", []);
 };
 
-fluigSdk.flows.eula = function(success, error) {
-  exec(success, error, FLOW_WRAPPER_NATIVE, "eula", []);
+fluigSdk.flows.eula = function(success, error, config) {
+  exec(success, error, FLOW_WRAPPER_NATIVE, "eula", [config]);
 };
 
 //information
