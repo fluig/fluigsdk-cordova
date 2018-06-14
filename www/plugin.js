@@ -9,12 +9,12 @@ var fluigSdk = {};
 
 fluigSdk.flows = {};
 
-fluigSdk.flows.login = function(success, error) {
-  exec(success, error, FLOW_WRAPPER_NATIVE, "login", []);
+fluigSdk.flows.login = function(success, error, params) {
+  exec(success, error, FLOW_WRAPPER_NATIVE, "login", params || []);
 };
 
 fluigSdk.flows.eula = function(success, error, params) {
-  exec(success, error, FLOW_WRAPPER_NATIVE, "eula", params);
+  exec(success, error, FLOW_WRAPPER_NATIVE, "eula", params || []);
 };
 
 //information
