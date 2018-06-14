@@ -72,10 +72,32 @@ public class FluigFlowWrapper extends CordovaPlugin {
     }
 
     private boolean eula(JSONArray args, final CallbackContext callbackContext) throws JSONException {
+
+        String title = null;
+
         Context context = cordova.getContext();
+        
         if (context == null) {
             callbackContext.error("Unable to start eula flow.");
             return false;
+        }
+
+        if (args != null){
+
+            try{
+
+                for (int i = 0; i < args.length(); ++i) {
+
+                    JSONObject titleJson = args.getJSONObject(i);
+                
+                    title = titleJson.getString("title");
+
+                }
+
+            } catch(Exception ex){
+                ex.printStackTrace();                
+            } 
+
         }
 
         BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -90,7 +112,7 @@ public class FluigFlowWrapper extends CordovaPlugin {
         filter.addAction(EulaFlow.ACTION_DID_NOT_ACCEPT);
         context.registerReceiver(receiver, filter);
 
-        EulaFlow flow = new EulaFlow(context);
+        EulaFlow flow = new EulaFlow(context, title);
 
         flow.start();
 
